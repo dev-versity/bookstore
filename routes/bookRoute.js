@@ -5,7 +5,8 @@ const Book = require('../models/book')
 bookRouter.get('/all', (req, res) => {
     Book.find({}, (error, books) => {
         if(error) console.error(error)
-        res.send(books)
+        res.render("books", {books: books})
+
     }) 
 })
 
