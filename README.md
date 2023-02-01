@@ -3,4 +3,7 @@
 # TODO: 
 
 - [x] installer `express`
-- [ ] installer `nodemon`
+- [x] installer `nodemon`
+
+- [ ] creation du fichier `bookRoute.js`
+    - [ ] installer `mongoose`
