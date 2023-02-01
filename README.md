@@ -2,4 +2,5 @@
 
 # TODO: 
 
-- [ ] installer `express`
+- [x] installer `express`
+- [ ] installer `nodemon`
