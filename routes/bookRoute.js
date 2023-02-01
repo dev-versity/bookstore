@@ -13,7 +13,7 @@ bookRouter.get('/all', (req, res) => {
 
 bookRouter.post('/new', (req, res) => {
     let newBook = new Book(req.body)
-    console.log(newBook)
+    
     newBook.save((error, book) => {
         if (error) console.error(error)
         res.send(book)
@@ -22,8 +22,19 @@ bookRouter.post('/new', (req, res) => {
 
 // GET - get a book by id
 
-bookRouter.get('/:id', (req, res) => {
+bookRouter.route('/:id')
+
+.get((req, res) => {
     Book.findById(req.params.id, (error, book) => {
+        if (error) console.error(error)
+        res.send(book)
+    })
+})
+
+// PUT - edit a book
+
+.put((req, res) => {
+    Book.findByIdAndUpdate(req.params.id, req.body, (error, book) => {
         if (error) console.error(error)
         res.send(book)
     })
