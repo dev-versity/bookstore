@@ -19,3 +19,5 @@ bookRouter.post('/new', (req, res) => {
         res.send(book)
     })
 })
+
+module.exports = bookRouter

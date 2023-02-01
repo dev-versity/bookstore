@@ -17,8 +17,14 @@ async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/bookstoredb');
 }
 
+app.use(express.urlencoded({
+    extended: true
+}))
+
 app.get('/', (req, res) => {
     res.send('Welcome to API bookstore my dear!')
 })
+
+app.use('/books', require('./routes/bookRoute'))
 
 app.listen(port, () => console.log(`[🚀 SERVER 🚀] on port: ${port}`))
