@@ -20,4 +20,13 @@ bookRouter.post('/new', (req, res) => {
     })
 })
 
+// GET - get a book by id
+
+bookRouter.get('/:id', (req, res) => {
+    Book.findById(req.params.id, (error, book) => {
+        if (error) console.error(error)
+        res.send(book)
+    })
+})
+
 module.exports = bookRouter
