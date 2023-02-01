@@ -40,4 +40,13 @@ bookRouter.route('/:id')
     })
 })
 
+// DELETE - delete a book
+
+.delete((req, res) => {
+    Book.findByIdAndRemove(req.params.id, (error, book) => {
+        if (error) console.error(error)
+        res.send('Gone !');
+    })
+})
+
 module.exports = bookRouter
