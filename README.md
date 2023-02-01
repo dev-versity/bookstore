@@ -6,4 +6,6 @@
 - [x] installer `nodemon`
 
 - [ ] creation du fichier `bookRoute.js`
-    - [ ] installer `mongoose`
+    - [x] installer `mongoose`
+    - [x] connexion à MongoDB
+    - [ ] CRUD - methode `POST`

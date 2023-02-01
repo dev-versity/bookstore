@@ -8,3 +8,14 @@ bookRouter.get('/all', (req, res) => {
         res.send(books)
     }) 
 })
+
+// POST - create a new book
+
+bookRouter.post('/new', (req, res) => {
+    let newBook = new Book(req.body)
+    console.log(newBook)
+    newBook.save((error, book) => {
+        if (error) console.error(error)
+        res.send(book)
+    })
+})
