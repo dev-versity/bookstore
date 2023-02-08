@@ -1,0 +1,11 @@
+extends layout 
+block content 
+    h1=book.name 
+    em=book.author 
+    p=book.pages 
+    p=book.category
+    hr
+    button 
+        a(href=`/books/${book.id}/edit`) Modifier
+    button 
+        a(href=`/books/${book.id}/delete`) Supprimer     

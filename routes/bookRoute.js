@@ -3,21 +3,25 @@ const Book = require('../models/book')
 
 // GET all books
 bookRouter.get('/all', (req, res) => {
-    Book.find({}, (error, books) => {
+    Book.find({}, (error, booksData) => {
         if(error) console.error(error)
-        res.render("books", {books: books})
+        res.render("books", {books: booksData})
 
     }) 
 })
 
 // POST - create a new book
 
+bookRouter.get("/new", (req, res) => {
+    res.render("newBook");
+})
+
 bookRouter.post('/new', (req, res) => {
     let newBook = new Book(req.body)
     
     newBook.save((error, book) => {
         if (error) console.error(error)
-        res.send(book)
+        res.redirect("/books/all")
     })
 })
 
@@ -28,25 +32,33 @@ bookRouter.route('/:id')
 .get((req, res) => {
     Book.findById(req.params.id, (error, book) => {
         if (error) console.error(error)
-        res.send(book)
+        res.render("book", {book: book})
     })
 })
 
 // PUT - edit a book
 
-.put((req, res) => {
+bookRouter.get("/:id/edit", (req, res) => {
+    Book.findById(req.params.id, (error, book) => {
+    if (error) console.error(error)
+    res.render("edit", {book: book})
+    })  
+    
+})
+
+bookRouter.post("/:id/edit",(req, res) => {
     Book.findByIdAndUpdate(req.params.id, req.body, (error, book) => {
         if (error) console.error(error)
-        res.send(book)
+        res.redirect("/books/all")
     })
 })
 
 // DELETE - delete a book
 
-.delete((req, res) => {
+bookRouter.get("/:id/delete", (req, res) => {
     Book.findByIdAndRemove(req.params.id, (error, book) => {
         if (error) console.error(error)
-        res.send('Gone !');
+        res.redirect('/books/all');
     })
 })
 

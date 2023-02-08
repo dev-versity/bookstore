@@ -13,4 +13,5 @@
     - [x] CRUD - methode `PUT` pour un `id`
     - [x] CRUD - methode `DELETE` pour un `id`
 - [x] installer moteur de rendu `Pug`
+- [ ] optimisation du côté client
 
