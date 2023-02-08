@@ -21,6 +21,12 @@ app.use(express.urlencoded({
     extended: true
 }))
 
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+app.use(express.static(__dirname + '/public'));
+
+
 app.get('/', (req, res) => {
     res.send('Welcome to API bookstore my dear!')
 })

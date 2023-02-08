@@ -1,0 +1,11 @@
+extends layout 
+block content 
+    h1 Ajouter un nouveau livre 
+    button 
+        a(href="/books/all") Retour
+    form(action="/books/new", method="post")
+        input(type="text" id="name" name="name" placeholder="ajouter le nom du livre") 
+        input(type="text" id="author" name="author" placeholder="ajouter le nom de l'auteur") 
+        input(type="number" id="pages" name="pages" placeholder="ajouter le nombre de pages") 
+        input(type="text" id="category" name="category" placeholder="ajouter les genres")
+        button(type="submit") Envoyer  

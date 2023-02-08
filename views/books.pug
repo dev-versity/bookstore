@@ -1,0 +1,11 @@
+extends layout 
+block content 
+    h1 All books
+    button 
+        a(href="/books/new") ajouter un livre 
+    for book in books 
+        a(href=`/books/${book.id}`)  
+            h3= book.name 
+            i= book.author
+            p= book.pages  
+            
